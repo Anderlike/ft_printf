@@ -6,79 +6,97 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:27:28 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/05/22 12:15:36 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:54:26 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Libft/libft.h"
 #include "ft_printf.h"
 
-char	ft_putchar(char c)
+char	ft_putchar(char c, int *counter)
 {
 	write(1, &c, 1);
+	(*counter)++;
 	return (c);
 }
-void	ft_putstr(char *str)
+
+void	ft_putstr(char *str, int *counter)
 {
 	int	i;
 
 	i = -1;
+	if (!str)
+		return (NULL);
 	while (str[++i] != '\0')
-		ft_putchar(str[i]);
+		ft_putchar(str[i], counter);
 }
-void	ft_args(va_list args, char c)
+
+void	ft_args(va_list args, char c, int *counter)
 {
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
+		ft_putchar(va_arg(args, int), counter);
 	else if (c == 's')
-		ft_putstr(va_arg(args, char *));
+		ft_putstr(va_arg(args, char *), counter);
 	else if (c == 'p')
 	{
-		ft_putstr("0x");
-		ft_putnbr_base(va_arg(args, unsigned long), "0123456789abcdef");
+		if (va_arg(args, long long) == NULL)
+			return (NULL);
+		ft_putstr("0x", counter);
+		ft_putnbr_base(va_arg(args, long long), "0123456789abcdef", counter);
 	}
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_base(va_arg(args, int), "0123456789");
+		ft_putnbr_base(va_arg(args, int), "0123456789", counter);
 	else if (c == 'u')
-		ft_putnbr_base(va_arg(args, unsigned int), "0123456789");
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789", counter);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef", counter);
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF", counter);
 	else if (c == '%')
-		ft_putchar('%');
+		ft_putchar('%', counter);
 }
+
 int	ft_printf(const char *s, ...)
 {
 	unsigned int	i;
+	int				counter;
 	va_list			args;
 
-	i = 0;
+	counter = 0;
 	va_start(args, s);
+	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
 		{
-			ft_args(args, s[i + 1]);
+			ft_args(args, s[i + 1], &counter);
 			i += 2;
 		}
 		else
 		{
-			ft_putchar(s[i]);
+			ft_putchar(s[i], &counter);
 			i++;
 		}
 	}
 	va_end(args);
-	return (0);
+	return (counter);
 }
-/*
+
+/* #include <limits.h>
 #include <stdio.h>
 
 int	main(void)
 {
+	ft_printf("aaaaaaaaaaaa %s faapsfasd: %i\n", "boas pessoal",
+		ft_printf("faapsfasd"));
+	// printf("aaaaaaaaaaaa %s faapsfasd: %i\n", "boas pessoal",
+	// printf("faapsfasd"));
+	ft_printf("%c\n", '0');
 	ft_printf("Teste 1: %c\n", 'h');
 	// printf("Teste 1: %c\n", 'h');
 	ft_printf("Teste 2: %s\n", "Boas pessoal");
+	ft_printf("%i\n", ft_printf("Teste 2: %p\n", "Boas pessoal"));
+	// ft_printf("%i\n", printf("Teste 2: %p\n", "Boas pessoal"));
 	// printf("Teste 2: %s\n", "Boas pessoal");
 	ft_printf("Teste 3: %p\n", "eognaoowon");
 	// printf("Teste 3: %p\n", "eognaoowon");
@@ -97,5 +115,18 @@ int	main(void)
 	ft_printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
 		"eognaoowon", 423778, 423778, 423778, 423778, 423778);
 	// printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
-	//	"eognaoowon", 423778, 423778, 423778, 423778, 423778);
-}*/
+	//"eognaoowon", 423778, 423778, 423778, 423778, 423778);
+	ft_printf("%i, %i", INT_MIN, INT_MAX);
+	printf("%p, %p", INT_MIN, INT_MAX);
+} */
+
+/* int	main(int argc, char **argv)
+{
+	char *str;
+	str = NULL;
+
+	// ft_printf("Teste %d\n", ft_atoi(argv[1]));
+	ft_printf("%p\n", str);
+	(void)argv;
+	(void)argc;
+} */
