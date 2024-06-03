@@ -6,13 +6,13 @@
 #    By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 11:29:01 by aaleixo-          #+#    #+#              #
-#    Updated: 2024/05/22 11:33:16 by aaleixo-         ###   ########.fr        #
+#    Updated: 2024/06/03 19:33:57 by aaleixo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 SOURCES = \
-	ft_printf.c ft_putnbr_base.c
+	ft_printf.c ft_putnbr.c
 BSOURCES = 
 LIBFT_OBJS = $(shell for obj in `ar -t Libft/libft.a`; do echo Libft/$$obj; done)
 OBJECTS = $(SOURCES:.c=.o)
