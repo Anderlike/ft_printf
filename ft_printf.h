@@ -16,7 +16,7 @@
 # include "Libft/libft.h"
 
 int		ft_printf(const char *s, ...);
-void	ft_putnbr(long n, char *base, int *counter);
+void	ft_putnbr(long long n, char *base, int *counter);
 void	ft_putstr(char *str, int *counter);
 char	ft_putchar(char c, int *counter);
 

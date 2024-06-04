@@ -22,12 +22,12 @@ static void	ft_write(char *s, long k, int *counter)
 	}
 }
 
-void	ft_putnbr(long n, char *base, int *counter)
+void	ft_putnbr(long long n, char *base, int *counter)
 {
-	int k;
-	int temp;
-	char s[22];
-	int basel;
+	int	k;
+	int	temp;
+	int	basel;
+	char	s[22];
 
 	basel = ft_strlen(base);
 	k = 0;

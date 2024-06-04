@@ -35,11 +35,11 @@ void	ft_ptr(va_list args, int *counter)
 
 	ptr = va_arg(args, void *);
 	if (ptr == 0)
-		ft_putstr("(null)", counter);
+		ft_putstr("(nil)", counter);
 	else
 	{
 		ft_putstr("0x", counter);
-		ft_putnbr((long)ptr, "0123456789abcdef", counter);
+		ft_putnbr((long long)ptr, "0123456789abcdef", counter);
 	}
 }
 
@@ -105,32 +105,30 @@ int	main(void)
 {
 	ft_printf("aaaaaaaaaaaa %s faapsfasd: %i\n", "boas pessoal",
 		ft_printf("faapsfasd"));
-	// printf("aaaaaaaaaaaa %s faapsfasd: %i\n", "boas pessoal",
-	// printf("faapsfasd"));
-	ft_printf("%c\n", '0');
+	printf("aaaaaaaaaaaa %s faapsfasd: %i\n", "boas pessoal",
+	printf("faapsfasd"));
 	ft_printf("Teste 1: %c\n", 'h');
-	// printf("Teste 1: %c\n", 'h');
+	printf("Teste 1: %c\n", 'h');
 	ft_printf("Teste 2: %s\n", "Boas pessoal");
-	// printf("Teste 2: %s\n", "Boas pessoal");
+	printf("Teste 2: %s\n", "Boas pessoal");
 	ft_printf("Teste 3: %p\n", "eognaoowon");
-	// printf("Teste 3: %p\n", "eognaoowon");
+	printf("Teste 3: %p\n", "eognaoowon");
 	ft_printf("Teste 4: %d\n", -423778);
-	// printf("Teste 4: %d\n", -423778);
+	printf("Teste 4: %d\n", -423778);
 	ft_printf("Teste 5: %i\n", -423778);
-	// printf("Teste 5: %i\n", -423778);
+	printf("Teste 5: %i\n", -423778);
 	ft_printf("Teste 6: %u\n", -423778);
-	// printf("Teste 6: %u\n", -423778);
+	printf("Teste 6: %u\n", -423778);
 	ft_printf("Teste 7: %x\n", -423778);
-	// printf("Teste 7: %x\n", -423778);
+	printf("Teste 7: %x\n", -423778);
 	ft_printf("Teste 8: %X\n", -423778);
-	// printf("Teste 8: %X\n", -423778);
+	printf("Teste 8: %X\n", -423778);
 	ft_printf("Teste 9: %%\n");
-	// printf("Teste 9: %%\n");
+	printf("Teste 9: %%\n");
 	ft_printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
 		"eognaoowon", 423778, 423778, 423778, 423778, 423778);
-	// printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
-	//	"eognaoowon", 423778, 423778, 423778, 423778, 423778);
-	ft_printf("Teste 11: %t pog\n", "Boas pessoal");
+	printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
+		"eognaoowon", 423778, 423778, 423778, 423778, 423778);
 } */
 
 /* int	main(int argc, char **argv)
