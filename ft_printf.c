@@ -111,8 +111,6 @@ int	main(void)
 	ft_printf("Teste 1: %c\n", 'h');
 	// printf("Teste 1: %c\n", 'h');
 	ft_printf("Teste 2: %s\n", "Boas pessoal");
-	ft_printf("%i\n", ft_printf("Teste 2: %p\n", "Boas pessoal"));
-	// ft_printf("%i\n", printf("Teste 2: %p\n", "Boas pessoal"));
 	// printf("Teste 2: %s\n", "Boas pessoal");
 	ft_printf("Teste 3: %p\n", "eognaoowon");
 	// printf("Teste 3: %p\n", "eognaoowon");
@@ -132,6 +130,7 @@ int	main(void)
 		"eognaoowon", 423778, 423778, 423778, 423778, 423778);
 	// printf("Teste 10: %c %s %p %d %i %u %x %X %%\n", 'h', "Boas pessoal",
 	//	"eognaoowon", 423778, 423778, 423778, 423778, 423778);
+	ft_printf("Teste 11: %t pog\n", "Boas pessoal");
 } */
 
 /* int	main(int argc, char **argv)

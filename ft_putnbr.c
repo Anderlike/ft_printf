@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-static void	writ(char *s, long k, int *counter)
+static void	ft_write(char *s, long k, int *counter)
 {
 	while (k >= 0)
 	{
 		write(1, s + k, 1);
 		k--;
-		(counter)++;
+		(*counter)++;
 	}
 }
 
@@ -48,5 +48,5 @@ void	ft_putnbr(long n, char *base, int *counter)
 		s[k++] = temp;
 		n /= basel;
 	}
-	writ(s, (k - 1), counter);
+	ft_write(s, (k - 1), counter);
 }
