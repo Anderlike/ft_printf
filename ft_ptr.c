@@ -26,19 +26,16 @@ void	ft_putnbr_ptr(unsigned long long n, char *base, int *counter)
 {
 	int	k;
 	int	temp;
-	int	basel;
+	int	baselen;
 	char	s[22];
 
-	basel = ft_strlen(base);
+	baselen = ft_strlen(base);
 	k = 0;
 	while (n != 0)
 	{
-		if (n >= 1)
-			temp = base[(n % basel)];
-		else
-			temp = base[((n % basel) * -1)];
+		temp = base[(n % baselen)];
 		s[k++] = temp;
-		n /= basel;
+		n /= baselen;
 	}
 	ft_write(s, (k - 1), counter);
 }
@@ -56,4 +53,3 @@ void    ft_ptr(va_list args, int *counter)
         ft_putnbr_ptr(ptr, "0123456789abcdef", counter);
     }
 }
-
