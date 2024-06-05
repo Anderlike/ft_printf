@@ -18,6 +18,7 @@
 int		ft_printf(const char *s, ...);
 void	ft_putnbr(long long n, char *base, int *counter);
 void	ft_putstr(char *str, int *counter);
+void    ft_ptr(va_list args, int *counter);
 char	ft_putchar(char c, int *counter);
 
 #endif

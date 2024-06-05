@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 SOURCES = \
-	ft_printf.c ft_putnbr.c
+	ft_printf.c ft_putnbr.c ft_ptr.c
 BSOURCES = 
 LIBFT_OBJS = $(shell for obj in `ar -t Libft/libft.a`; do echo Libft/$$obj; done)
 OBJECTS = $(SOURCES:.c=.o)

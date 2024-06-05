@@ -29,20 +29,6 @@ void	ft_putstr(char *str, int *counter)
 		ft_putchar(str[i], counter);
 }
 
-void	ft_ptr(va_list args, int *counter)
-{
-	void	*ptr;
-
-	ptr = va_arg(args, void *);
-	if (ptr == 0)
-		ft_putstr("(nil)", counter);
-	else
-	{
-		ft_putstr("0x", counter);
-		ft_putnbr((long long)ptr, "0123456789abcdef", counter);
-	}
-}
-
 void	ft_args(va_list args, char c, int *counter)
 {
 	char	*str;
